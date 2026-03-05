@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC 
+    "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+    "http://struts.apache.org/dtds/struts-2.5.dtd">
+
+<struts>
+    <constant name="struts.multipart.maxSize" value="10485760"/>
+
+    <package name="default" namespace="/" extends="struts-default">
+        <action name="upload">
+            <result>/upload.jsp</result>
+        </action>
+    </package>
+
+    <package name="fileupload" namespace="/" extends="struts-default">
+        <action name="uploadfile" class="com.struts.upload.FileUploadAction" method="doUpload">
+
+            <interceptor-ref name="fileUpload">
+                <param name="allowedTypes">image/jpeg,image/png,application/pdf</param>
+                <param name="maximumSize">10485760</param> 
+            </interceptor-ref>
+            <interceptor-ref name="params"/>
+            <interceptor-ref name="validation"/>
+            <interceptor-ref name="workflow"/>
+
+            <result name="success" type="redirect">/result.jsp</result>
+            <result name="input">/upload.jsp</result>
+        </action>
+    </package>
+</struts>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+<!-- Setter Injection-->
+     <bean class="com.SpringCore.SpringDI.Address" name="address">
+     
+     </bean>
+     
+    <bean class="com.SpringCore.SpringDI.Student" name="stud" >
+     <property name="Name" value="Ramesh" />
+     <property name="Course" value="MCA" />
+     <property name="Age" value="23" />
+     <property name="Add">
+     	<ref bean="address" />
+     </property>
+	      
+    </bean>
+  
+<!-- Constructor Injection-->    
+   <!--  <bean class="com.example.SpringDI.Address" name="add">
+    	<constructor-arg value="Hubli" />
+    </bean>
+    
+    <bean class="com.example.Lesson01.Student" name="stud" scope="prototype">
+    	<constructor-arg value="Mahantesh" type="String"/>
+    	<constructor-arg value="23" type="int" />
+    	<constructor-arg value="MCA" type="String" />
+    	<constructor-arg ref="add" />  	
+    	
+    </bean>
+    
+    
+    <bean class="com.example.Lesson01.Student" name="stud2" scope="prototype" primary="true">
+    	<constructor-arg value="Mahantesh" type="String"/>
+    	<constructor-arg value="23" type="int" />
+    	<constructor-arg value="MCA" type="String" />
+    	<constructor-arg ref="add" />  	
+    	
+    </bean> -->
+    
+</beans> 
